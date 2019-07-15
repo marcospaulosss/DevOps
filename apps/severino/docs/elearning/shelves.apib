@@ -1,0 +1,177 @@
+# Group Shelves
+## Estante de albuns [/api/shelves]
+
+### Create [POST]
+
++ Request (application/json)
+
+    + Attributes (ShelfRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (ShelfIDResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 419 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
+### Update [PUT /api/shelves/{id}]
+
++ Parameters
+    + id: `1` (number, required) - ID do shelf
+
++ Request (application/json)
+
+    + Attributes (ShelfRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (ShelfIDResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 404 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 419 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
+### Delete [DELETE /api/shelves/{id}]
+
++ Parameters
+    + id: `1` (number, required) - ID do item
+
++ Response 204 (application/json)
+
++ Response 404 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
+### ReadOne [GET /api/shelves/{id}]
+
++ Parameters
+    + id: `1` (number, required) - ID do item
+
++ Response 200 (application/json)
+
+    + Attributes (ShelfResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 404 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
+### ReadAll [GET /api/shelves{?search,sort,page,per_page}]
+
+O parametro 'search' segue o formato: "(field[operator]:'value')". Exemplos:
+
+- **title[eq]:'first shelf'**: O campo `title` dever possuir o valor exatamente igual à `first shelf`
+- **title[ne]:'first'**: O o valor do campo `title` deve ser diferente de `first`
+- **title[contains]:'first'**: O campo `title` deve conter o valor `first`
+- **title[icontains]:'first'**: O campo `title` deve conter o valor `first` ignorando case sensitive
+- **created_at[gt]:'2019-01-01'**: O valor do campo `created_at` deve ser maior que `2019-01-01`
+- **created_at[gte]:'2019-01-01'**: O valor do campo `created_at` deve ser maior ou igual que `2019-01-01`
+- **created_at[lt]:'2019-01-01'**: O valor do campo `created_at` deve ser menor que `2019-01-01`
+- **created_at[lte]:'2019-01-01'**: O valor do campo `created_at` deve ser menor ou igual que `2019-01-01`
+
++ Parameters
+
+    + sort: `+created_at` (string, optional) - Ordena o resultado pelo campo determinado. A ordem varia entre ASC (adicionando o prefixo +) ou DESC (adicionando prefixo -).
+
+        + Members
+            + `+id`
+            + `-id`
+            + `+created_at`
+            + `-created_at`
+            + `+title`
+            + `-title`
+
+    + page: `1` (string, optional) - Número da página. Se for `0` a paginação vai ser ignorada.
+
+    + per_page: `5` (number, optional) - Total de itens por página. Se for `0` a paginação vai ser ignorada.
+
+    + search: `(created_at[gte]:'2019-01-01')` - Os parâmetros de busca devem estar entre parenteses. O separador `,` funciona como o operador `OR` e `+` como `AND`.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(ShelvesResponse)
+
++ Response 500 (application/json)
+
+    + Attributes(SearchResponseError)
+
++ Response 400 (application/json)
+
+    + Attributes(SearchResponseError)
+
+### ReadAll only with Published Albums [GET /api/shelves/published/albums{?search,sort,page,per_page}]
+
+Retorna apenas as shelves contendo albums publicados. Os mesmos filtros do ReadAll funcionam aqui.
+
++ Response 200 (application/json)
+
+    + Attributes(ShelvesResponse)
+
++ Response 500 (application/json)
+
+    + Attributes(SearchResponseError)
+
++ Response 400 (application/json)
+
+    + Attributes(SearchResponseError)
+
+## Data Structures
+
+### `shelf_id`
++ id: 1 (number, required) - ID do item
+
+### shelf
++ title: `Regência verbal e nominal` (string, required) - Título
+
+### shelffull(shelf)
++ id: 1 (number, required) - ID do item
++ created_at: `2019-03-03 03:03:03` (string, required) - Data de criação
++ albums (array[albumfull], optional)
+
+### ShelfRequest(shelf)
++ albums (array[album_id], optional)
+
+### ShelfIDResponse
++ data (shelf_id, required)
+
+### ShelfResponse(shelffull)
+
+### ShelvesResponse
++ data (array[shelffull], required)
++ meta (meta) - Metadados da paginação
+
+

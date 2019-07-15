@@ -1,0 +1,28 @@
+# Group Home
+
+## Shelves da Home [/api/home]
+
+### ReadAll [GET /api/home{?page,per_page}]
+Este endpoint retorna as shelves configuradas para aparecer na home do app.
+Para configurar os ids que devem ser listados na home, assim como a ordem de listagem,
+ver a documentação do endpoint `/api/preferences/home`
+
++ Parameters
+
+	+ page: `1` (string, optional) - Número da página. Se for `0` a paginação vai ser ignorada.
+
+	+ per_page: `5` (number, optional) - Total de itens por página. Se for `0` a paginação vai ser ignorada.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(ShelvesResponse)
+
++ Response 500 (application/json)
+
+    + Attributes(SearchResponseError)
+
++ Response 400 (application/json)
+
+    + Attributes(SearchResponseError)

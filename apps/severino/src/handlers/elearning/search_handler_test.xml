@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <testsuite name="Handlers &gt; Elearning &gt; Search " tests="86" failures="0" errors="0" time="0.062">
+      <testcase name="TagHandler Tags #CreateTag Should return success when send only required and valid data" classname="Handlers &gt; Elearning &gt; Search " time="0.000676029"></testcase>
+      <testcase name="TagHandler Tags #CreateTag Should return error when request is empty" classname="Handlers &gt; Elearning &gt; Search " time="0.000259057"></testcase>
+      <testcase name="TagHandler Tags #CreateTag Should return error when request is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000258468"></testcase>
+      <testcase name="TagHandler Tags #ReadAllTags Should return list of tags when using default filters" classname="Handlers &gt; Elearning &gt; Search " time="0.000583568"></testcase>
+      <testcase name="TagHandler Tags #ReadAllTags Should return 3 tags when per_page is 3" classname="Handlers &gt; Elearning &gt; Search " time="0.000609379"></testcase>
+      <testcase name="TagHandler Tags #ReadAllTags Should return tags ordered by title ascending when order=title and sort=asc" classname="Handlers &gt; Elearning &gt; Search " time="0.000593012"></testcase>
+      <testcase name="TagHandler Tags #ReadAllTags Should return an empty list when not found tags" classname="Handlers &gt; Elearning &gt; Search " time="0.00057509"></testcase>
+      <testcase name="TagHandler Tags #ReadAllTags Should return error when occurs an application error" classname="Handlers &gt; Elearning &gt; Search " time="0.000983949"></testcase>
+      <testcase name="TagHandler Tags #ReadAllTags Should accept json string objects on filter param" classname="Handlers &gt; Elearning &gt; Search " time="0.000576706"></testcase>
+      <testcase name="TagHandler Tags #ReadOneTag Should return tag when found by ID" classname="Handlers &gt; Elearning &gt; Search " time="0.000570799"></testcase>
+      <testcase name="TagHandler Tags #ReadOneTag Should return error when ID does not exist" classname="Handlers &gt; Elearning &gt; Search " time="0.000554291"></testcase>
+      <testcase name="TagHandler Tags #UpdateTag Should update tag and return itself when source data is valid" classname="Handlers &gt; Elearning &gt; Search " time="0.000597387"></testcase>
+      <testcase name="TagHandler Tags #UpdateTag Should return error when ID does not exist" classname="Handlers &gt; Elearning &gt; Search " time="0.000581714"></testcase>
+      <testcase name="TagHandler Tags #UpdateTag Should return error when ID given is not integer" classname="Handlers &gt; Elearning &gt; Search " time="0.000348907"></testcase>
+      <testcase name="TagHandler Tags #UpdateTag Should return error when request is empty" classname="Handlers &gt; Elearning &gt; Search " time="0.000253485"></testcase>
+      <testcase name="TagHandler Tags #UpdateTag Should return error when request is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000245494"></testcase>
+      <testcase name="TagHandler Tags #DeleteTag Should delete tag and return itself when source data is valid" classname="Handlers &gt; Elearning &gt; Search " time="0.000545458"></testcase>
+      <testcase name="TagHandler Tags #DeleteTag Should return error when ID does not exist" classname="Handlers &gt; Elearning &gt; Search " time="0.000570622"></testcase>
+      <testcase name="TagHandler #Latest Should return last 10 tags with max 10 albums each" classname="Handlers &gt; Elearning &gt; Search " time="0.002985389"></testcase>
+      <testcase name="TagHandler #Latest Should return an empty list when found no tags" classname="Handlers &gt; Elearning &gt; Search " time="0.000615257"></testcase>
+      <testcase name="TagHandler #Latest Should return error when occurs an application error" classname="Handlers &gt; Elearning &gt; Search " time="0.000562542"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return the album after it is created with all required fields, associating tags and tracks" classname="Handlers &gt; Elearning &gt; Search " time="0.000608126"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return the album after it is created with all required fields, associating tags" classname="Handlers &gt; Elearning &gt; Search " time="0.000574733"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return the album after it is created with all required fields, associating tracks" classname="Handlers &gt; Elearning &gt; Search " time="0.000581651"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return the album after it is created with all required fields, without associating tags and tracks" classname="Handlers &gt; Elearning &gt; Search " time="0.000583799"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error of validator when title on the required" classname="Handlers &gt; Elearning &gt; Search " time="0.000392508"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error of validator when image url on the required" classname="Handlers &gt; Elearning &gt; Search " time="0.000390081"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error of validator when image url not is url" classname="Handlers &gt; Elearning &gt; Search " time="0.000369593"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return the error after it not is created an album" classname="Handlers &gt; Elearning &gt; Search " time="0.000696071"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error when field tags is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000440108"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error when field tags is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000372631"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error when field tracks is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000325274"></testcase>
+      <testcase name="ElearningHandler Album #CreateAlbum Should return error when field tracks is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000343809"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return album when parameters are valid, containing tags associates" classname="Handlers &gt; Elearning &gt; Search " time="0.000606749"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return when parameters are valid, no containing tags associates" classname="Handlers &gt; Elearning &gt; Search " time="0.000753133"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return error when title is missing, title required" classname="Handlers &gt; Elearning &gt; Search " time="0.000995973"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return error when image_url is missing, image_url required" classname="Handlers &gt; Elearning &gt; Search " time="0.000822841"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return error when image_url not is an URL valid" classname="Handlers &gt; Elearning &gt; Search " time="0.000806408"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return the error when have occurred error in the elearning" classname="Handlers &gt; Elearning &gt; Search " time="0.001237448"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return error when syntax json is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000356806"></testcase>
+      <testcase name="ElearningHandler Album #UpdateAlbum Should return error when id is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000341741"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should returns the first 10 albums" classname="Handlers &gt; Elearning &gt; Search " time="0.000940157"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should returns the first 10 albums when filter is applied" classname="Handlers &gt; Elearning &gt; Search " time="0.000945934"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should returns the first 10 albums when filter is applied with error" classname="Handlers &gt; Elearning &gt; Search " time="0.000655846"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should returns error when application cause some error in Get Albums" classname="Handlers &gt; Elearning &gt; Search " time="0.000582082"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should returns error when application cause some error in Get Tracks" classname="Handlers &gt; Elearning &gt; Search " time="0.000905192"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should returns the first 10 albums ordered to title asc when paginator is applied" classname="Handlers &gt; Elearning &gt; Search " time="0.000912671"></testcase>
+      <testcase name="ElearningHandler Album #ReadAllAlbum Should return album when related tag ID is setted" classname="Handlers &gt; Elearning &gt; Search " time="0.000915112"></testcase>
+      <testcase name="ElearningHandler Album #ReadOneAlbum Should return 1 album when id exist in database with tracks and tags associate" classname="Handlers &gt; Elearning &gt; Search " time="0.001322072"></testcase>
+      <testcase name="ElearningHandler Album #ReadOneAlbum Should return error when application cause some error" classname="Handlers &gt; Elearning &gt; Search " time="0.000455359"></testcase>
+      <testcase name="ElearningHandler Album #ReadOneAlbum Should return error when id is not integer" classname="Handlers &gt; Elearning &gt; Search " time="0.000325775"></testcase>
+      <testcase name="ElearningHandler Album #ReadOneAlbum Should return error when application cause some error in service track" classname="Handlers &gt; Elearning &gt; Search " time="0.000597271"></testcase>
+      <testcase name="ElearningHandler Album #ReadOneAlbum Should return error when application cause some error in service tags" classname="Handlers &gt; Elearning &gt; Search " time="0.000722076"></testcase>
+      <testcase name="ElearningHandler Album #PublishAlbum Should returns album id when album to published" classname="Handlers &gt; Elearning &gt; Search " time="0.000900514"></testcase>
+      <testcase name="ElearningHandler Album #PublishAlbum Should return error when id is not integer" classname="Handlers &gt; Elearning &gt; Search " time="0.000116653"></testcase>
+      <testcase name="ElearningHandler Album #PublishAlbum Should return error when ReadOne of the album causes error in the microservice" classname="Handlers &gt; Elearning &gt; Search " time="0.000615842"></testcase>
+      <testcase name="ElearningHandler Album #PublishAlbum Should return error when Update of the album causes error in the microservice" classname="Handlers &gt; Elearning &gt; Search " time="0.000841034"></testcase>
+      <testcase name="ElearningHandler Album #UnpublishAlbum Should returns album id when album to unpublished" classname="Handlers &gt; Elearning &gt; Search " time="0.000850144"></testcase>
+      <testcase name="ElearningHandler Album #UnpublishAlbum Should return error when id is not integer" classname="Handlers &gt; Elearning &gt; Search " time="7.3964e-05"></testcase>
+      <testcase name="ElearningHandler Album #UnpublishAlbum Should return error when ReadOne of the album causes error in the microservice" classname="Handlers &gt; Elearning &gt; Search " time="0.000568438"></testcase>
+      <testcase name="ElearningHandler Album #UnpublishAlbum Should return error when Update of the album causes error in the microservice" classname="Handlers &gt; Elearning &gt; Search " time="0.001209608"></testcase>
+      <testcase name="ElearningHandler Album #DeleteAlbum Should delete album and return itself when source data is valid" classname="Handlers &gt; Elearning &gt; Search " time="0.000555413"></testcase>
+      <testcase name="ElearningHandler Album #DeleteAlbum Should return error when ID does not exist" classname="Handlers &gt; Elearning &gt; Search " time="0.000551768"></testcase>
+      <testcase name="SearchHandler Search #Search Should return tags and albums when found" classname="Handlers &gt; Elearning &gt; Search " time="0.000909178"></testcase>
+      <testcase name="SearchHandler Search #Search Should return third page orded by title with 2 items per page sort ascending" classname="Handlers &gt; Elearning &gt; Search " time="0.000946589"></testcase>
+      <testcase name="SearchHandler Search #Search Should return empty array when nothing is found" classname="Handlers &gt; Elearning &gt; Search " time="0.000848233"></testcase>
+      <testcase name="SearchHandler Search #Search Should return error when term is not specified" classname="Handlers &gt; Elearning &gt; Search " time="0.000239956"></testcase>
+      <testcase name="SearchHandler Search #Search Should return error when elearning tags grpc rise error" classname="Handlers &gt; Elearning &gt; Search " time="0.000644698"></testcase>
+      <testcase name="SearchHandler Search #Search Should return error when elearning albums grpc rise error" classname="Handlers &gt; Elearning &gt; Search " time="0.000835471"></testcase>
+      <testcase name="TrackHandler Tracks #CreateTrack Should returns ok" classname="Handlers &gt; Elearning &gt; Search " time="0.000623872"></testcase>
+      <testcase name="TrackHandler Tracks #CreateTrack Should returns error when request is empty" classname="Handlers &gt; Elearning &gt; Search " time="0.000336878"></testcase>
+      <testcase name="TrackHandler Tracks #CreateTrack Should error if a required field is not filled" classname="Handlers &gt; Elearning &gt; Search " time="0.000360168"></testcase>
+      <testcase name="TrackHandler Tracks #CreateTrack Should return error when rpc data is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.001109501"></testcase>
+      <testcase name="TrackHandler Tracks #UpdateTrack Should return ok" classname="Handlers &gt; Elearning &gt; Search " time="0.000632298"></testcase>
+      <testcase name="TrackHandler Tracks #UpdateTrack Should return error when ID given is not integer" classname="Handlers &gt; Elearning &gt; Search " time="0.000386536"></testcase>
+      <testcase name="TrackHandler Tracks #UpdateTrack Should return error if types does not match" classname="Handlers &gt; Elearning &gt; Search " time="0.000343241"></testcase>
+      <testcase name="TrackHandler Tracks #UpdateTrack Should return error when data is invalid" classname="Handlers &gt; Elearning &gt; Search " time="0.000361598"></testcase>
+      <testcase name="TrackHandler Tracks #UpdateTrack Should return error when the RPC server raises an error due not found id" classname="Handlers &gt; Elearning &gt; Search " time="0.000646713"></testcase>
+      <testcase name="TrackHandler Tracks #ReadOne Should return single track data with no error" classname="Handlers &gt; Elearning &gt; Search " time="0.000596527"></testcase>
+      <testcase name="TrackHandler Tracks #ReadOne Should return error when the RPC server raises an error due not found id" classname="Handlers &gt; Elearning &gt; Search " time="0.00067032"></testcase>
+      <testcase name="TrackHandler Tracks #ReadAllTracks Should return the last 10 tracks if no filters is applied" classname="Handlers &gt; Elearning &gt; Search " time="0.000908025"></testcase>
+      <testcase name="TrackHandler Tracks #ReadAllTracks Should return page 2 of track list orded by id with two elements per page ascended sorted" classname="Handlers &gt; Elearning &gt; Search " time="0.000751665"></testcase>
+      <testcase name="TrackHandler Tracks #ReadAllTracks Should accept json string objects on filter param" classname="Handlers &gt; Elearning &gt; Search " time="0.000636937"></testcase>
+      <testcase name="TrackHandler Tracks #ReadAllTracks Should return error when filter is not a json object" classname="Handlers &gt; Elearning &gt; Search " time="0.000322318"></testcase>
+      <testcase name="TrackHandler Tracks #ReadAllTracks Should return empty array when nothing is found" classname="Handlers &gt; Elearning &gt; Search " time="0.00057139"></testcase>
+      <testcase name="TrackHandler Tracks #ReadAllTracks Should return empty array when the RPC server raises an error due not found id" classname="Handlers &gt; Elearning &gt; Search " time="0.001408102"></testcase>
+  </testsuite>

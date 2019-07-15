@@ -1,0 +1,19 @@
+port: 3002
+development:
+  database_url: postgres://root:root@127.0.0.1:5432/accounts?sslmode=disable
+  smtp:
+    user: AKIAUMNY5JYFCIDZPN37
+    secret: BOUAp2Bky8QD2G6Fl2ssesitgxJQUwN6g2QW+2tjI7hS
+    port: 465
+    server: email-smtp.us-east-1.amazonaws.com
+    sender: accounts.engineering@estrategiaconcursos.com.br
+  sms:
+    id: ACf00c39b91847c3057ddeb91c21182f92
+    secret: 77d04d6852cb261f63ca977477c57c9a
+    from: +18478071557
+
+testing:
+  database_url: postgres://root:root@127.0.0.1:5432/accounts?sslmode=disable
+
+docker:
+  database_url: postgres://root:root@db:5432/accounts?sslmode=disable

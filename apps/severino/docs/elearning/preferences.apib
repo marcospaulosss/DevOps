@@ -1,0 +1,34 @@
+# Group Preferences
+
+## Preferencias da API [/api/preferences/{type}]
+
+### Update [PUT /api/preferences/home]
+
++ Request (application/json)
+
+	+ Attributes (HomePreferenceRequest)
+
++ Response 200 (application/json)
+
+	+ Attributes (HomePreferenceResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
+
+## Data Structures
+
+### HomePreferenceRequest
++ shelves: 4,2,6,9 (array[number], required) - IDs das shelves que devem aparecer na home
+
+### HomePreferenceResponseData
++ type: `home` (string, required) - Tipo da preferência
++ shelves: 4,2,6,9 (array[number], required) - IDs das shelves que devem aparecer na home
+
+### HomePreferenceResponse
++ data (HomePreferenceResponseData)

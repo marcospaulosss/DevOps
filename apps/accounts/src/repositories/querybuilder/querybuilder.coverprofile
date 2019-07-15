@@ -1,0 +1,10 @@
+mode: atomic
+backend/apps/accounts/src/repositories/querybuilder/subscription_querybuilder.go:7.45,13.2 1 2
+backend/apps/accounts/src/repositories/querybuilder/subscription_querybuilder.go:15.47,25.2 1 2
+backend/apps/accounts/src/repositories/querybuilder/subscription_querybuilder.go:27.34,29.2 1 0
+backend/apps/accounts/src/repositories/querybuilder/subscription_querybuilder.go:31.51,33.2 1 2
+backend/apps/accounts/src/repositories/querybuilder/subscription_querybuilder.go:35.50,38.2 1 1
+backend/apps/accounts/src/repositories/querybuilder/user_querybuilder.go:9.26,11.2 1 0
+backend/apps/accounts/src/repositories/querybuilder/user_querybuilder.go:13.44,18.29 4 0
+backend/apps/accounts/src/repositories/querybuilder/user_querybuilder.go:21.2,24.14 3 0
+backend/apps/accounts/src/repositories/querybuilder/user_querybuilder.go:18.29,20.3 1 0

@@ -1,0 +1,26 @@
+mode: atomic
+backend/apps/severino/src/services/accounts/subscription.go:26.82,30.2 1 12
+backend/apps/severino/src/services/accounts/subscription.go:32.82,35.63 2 6
+backend/apps/severino/src/services/accounts/subscription.go:39.2,40.16 2 6
+backend/apps/severino/src/services/accounts/subscription.go:44.2,47.8 1 4
+backend/apps/severino/src/services/accounts/subscription.go:35.63,37.3 1 0
+backend/apps/severino/src/services/accounts/subscription.go:40.16,42.3 1 2
+backend/apps/severino/src/services/accounts/subscription.go:50.83,53.63 2 6
+backend/apps/severino/src/services/accounts/subscription.go:57.2,58.16 2 6
+backend/apps/severino/src/services/accounts/subscription.go:62.2,65.8 1 4
+backend/apps/severino/src/services/accounts/subscription.go:53.63,55.3 1 0
+backend/apps/severino/src/services/accounts/subscription.go:58.16,60.3 1 2
+backend/apps/severino/src/services/accounts/subscription.go:68.80,70.2 1 0
+backend/apps/severino/src/services/accounts/subscription.go:72.80,74.2 1 0
+backend/apps/severino/src/services/accounts/subscription.go:76.73,78.2 1 0
+backend/apps/severino/src/services/accounts/subscription.go:80.90,81.91 1 12
+backend/apps/severino/src/services/accounts/subscription.go:85.2,85.50 1 12
+backend/apps/severino/src/services/accounts/subscription.go:89.2,89.12 1 12
+backend/apps/severino/src/services/accounts/subscription.go:81.91,83.3 1 0
+backend/apps/severino/src/services/accounts/subscription.go:85.50,87.3 1 0
+backend/apps/severino/src/services/accounts/user.go:17.66,21.2 1 12
+backend/apps/severino/src/services/accounts/user.go:23.72,25.2 1 4
+backend/apps/severino/src/services/accounts/user.go:27.72,29.2 1 0
+backend/apps/severino/src/services/accounts/user.go:31.72,33.2 1 0
+backend/apps/severino/src/services/accounts/user.go:35.73,37.2 1 0
+backend/apps/severino/src/services/accounts/user.go:39.65,56.2 6 8

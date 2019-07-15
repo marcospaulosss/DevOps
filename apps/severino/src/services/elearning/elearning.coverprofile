@@ -1,0 +1,22 @@
+mode: atomic
+backend/apps/severino/src/services/elearning/album.go:21.68,25.2 1 39
+backend/apps/severino/src/services/elearning/album.go:27.73,29.2 1 6
+backend/apps/severino/src/services/elearning/album.go:31.73,33.2 1 6
+backend/apps/severino/src/services/elearning/album.go:35.73,37.2 1 6
+backend/apps/severino/src/services/elearning/album.go:39.74,41.2 1 6
+backend/apps/severino/src/services/elearning/album.go:43.66,53.16 5 15
+backend/apps/severino/src/services/elearning/album.go:67.2,72.3 2 15
+backend/apps/severino/src/services/elearning/album.go:53.16,54.51 1 9
+backend/apps/severino/src/services/elearning/album.go:54.51,64.4 2 27
+backend/apps/severino/src/services/elearning/tag.go:17.64,21.2 1 39
+backend/apps/severino/src/services/elearning/tag.go:23.71,25.2 1 6
+backend/apps/severino/src/services/elearning/tag.go:27.71,29.2 1 6
+backend/apps/severino/src/services/elearning/tag.go:31.71,33.2 1 6
+backend/apps/severino/src/services/elearning/tag.go:35.72,37.2 1 6
+backend/apps/severino/src/services/elearning/tag.go:39.64,57.2 6 15
+backend/apps/severino/src/services/elearning/track.go:16.68,20.2 1 39
+backend/apps/severino/src/services/elearning/track.go:22.73,24.2 1 6
+backend/apps/severino/src/services/elearning/track.go:26.73,28.2 1 6
+backend/apps/severino/src/services/elearning/track.go:30.73,32.2 1 6
+backend/apps/severino/src/services/elearning/track.go:34.74,36.2 1 6
+backend/apps/severino/src/services/elearning/track.go:38.66,53.2 4 15

@@ -1,0 +1,22 @@
+port: 4001
+development:
+  jwt:
+    secret: "mywordismypassword"
+    exp: 120 #seconds
+  media_url: https://d3oc8874xjg8az.cloudfront.net 
+  connections:
+    elearning: localhost:3001
+    accounts: localhost:3002
+    ecommerce: localhost:3003
+
+testing:
+  jwt:
+    secret: "mywordismypassword"
+    exp: 120 #seconds
+  media_url: https://testing
+
+docker:
+  connections:
+    elearning: elearning:3001
+    accounts: accounts:3002
+    ecommerce: ecommerce:3003

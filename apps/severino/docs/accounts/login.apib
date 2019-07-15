@@ -1,0 +1,88 @@
+# Group Login
+
+## Login [/auth/login/generate]
+Relação de endpoints responsáveis pela autenticação do usuário.
+
+### Gerar Código de Login [POST]
+Este endpoint é responsável pela geração do código de login.
+O código gerado será enviado como SMS OU mensagem de e-mail para o usuário que está efetuando o login.
+
++ Request (application/json)
+
+	+ Attributes (LoginPayload)
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 400 (application/json)
+
+	+ Attributes (LoginPostPutError)
+
+
+## Login [/auth/login/app/validate]
+
+### Validar Código de Login (App) [POST]
+Este endpoint é responsável por validar se o código de login provido pelo usuário confere com o código gerado para o número de telefone ou e-mail para o qual foi enviado.
+
++ Request (application/json)
+
+	+ Attributes (LoginCodeValidationPayload)
+
++ Response 200 (application/json)
+
+	+ Attributes (LoggedUserResponse)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 400 (application/json)
+
+	+ Attributes (LoginPostPutError)
+
+
+## Login [/auth/login/web/validate]
+
+### Validar Código de Login (Web) [POST]
+Este endpoint é responsável por validar se o código de login provido pelo usuário confere com o código gerado para o número de telefone ou e-mail para o qual foi enviado.
+
++ Request (application/json)
+
+	+ Attributes (LoginCodeValidationPayload)
+
++ Response 200 (application/json)
+
+	+ Attributes (LoggedUserResponse)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 400 (application/json)
+
+	+ Attributes (LoginPostPutError)
+
+## Data Structures
+
+### LoginBase
++ type: `email` (string, required) - recurso para direcionamento do envio do código. Os valores possíveis são `email` ou `phone`
+
+### LoginPayload(LoginBase)
++ email: `accounts@estrategiaconcursos.com.br` (string, optional) - email valido para a envio do código. É obrigatório apenas se o campo `type` for `email`
++ phone: `11999999999` (string, optional) - telefone celular válido para a envio do código. É obrigatório apenas se o campo `type` for `phone`
+
+### LoginCodeValidationPayload (LoginPayload)
++ code: `873183` (string, required) - Código enviado para o e-mail ou celular do usuário no processo de geração de código
+
+### LoggedUserResponse
++ data (LoginPostPut, required)
+
+### LoginPostPut
++ id: `220df258-646d-45fe-a88d-a81d664fcdc6` (string, required) - Id do usuário recém logado
++ token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjI2MTAwNDEsImlhdCI6MTU2MjYwOTkyMSwic3ViIjoiYjc3ZTAyZDYtMDk4My00NzAzLTg2YjEtZjM4ODI1YTQ0OTM2In0.QE1LWIzwGu0TUqV3vwUjOvBeVpWrQWSN2LURCDYFrFI` (string, required) - Token JWT gerado para o usuário
+
+### LoginPostPutError
++ error: `Um ou mais valores enviados não são válidos. Key: 'Account.Type' Error:Field validation for 'Type' failed on the 'required' tag` (string, required) - Descrição do erro ocorrido

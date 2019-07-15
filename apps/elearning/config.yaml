@@ -1,0 +1,11 @@
+port: 3001
+development:
+  database_url: postgres://root:root@127.0.0.1:5432/elearning?sslmode=disable
+
+testing:
+  database_url: postgres://root:root@127.0.0.1:5432/elearning?sslmode=disable
+
+docker:
+  database_url: postgres://root:root@db:5432/elearning?sslmode=disable
+
+

@@ -1,0 +1,96 @@
+# Group Users
+
+## Usuarios [/auth/users]
+Relação dos endpoints relacionados à consulta e manipulação de usuários
+
+### Criar um novo usuário [POST]
+Esse endpoint é responsável pela criação de um novo usuário na API
+
++ Request (application/json)
+
+	+ Attributes (UserPayload)
+
++ Response 200 (application/json)
+
+	+ Attributes (UserPostResp)
+
++ Response 400 (application/json)
+
+	+ Attributes (UserPostPutErrorBadRequest)
+
++ Response 404 (application/json)
+
+	+ Attributes (UserPostPutErrorCodeNotFound)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
+### Buscar lista de Usuários [GET /api/users{?sort,order,page,per_page,search}]
+Busca um lista de usuários de acordo com os critérios de paginação fornecidos
+O parâmetro `search` permite a pesquisa de usuário pelos campos `name`, `email` e `phone`
+
++ Parameters
+
+    + sort: `+created_at` (string, optional) - Ordena o resultado pelo campo determinado. A ordem varia entre ASC (adicionando o prefixo +) ou DESC (adicionando prefixo -).
+
+            + Members
+                + `+id`
+                + `-id`
+                + `+created_at`
+                + `-created_at`
+                + `+title`
+                + `-title`
+
+    + order: `title` (string, optional) - Chave onde a ordenação deve ser feita
+        + Default: `created_at`
+
+    + page: `1` (string, optional) - Especifica a página a ser consultada
+        + Default: `1`
+
+    + per_page: `5` (number, optional) - Especifica o máximo de itens que deve ser retornado por página
+        + Default: `10`
+
+    + search: `Michael` (string, optional) - Recebe uma string que irá buscar nos campos de nome, e-mail e telefone
+
++ Request(application/json)
+
++ Response 200(application/json)
+
+    + Attributes
+        + data (array[UserGet])
+        + meta (meta)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
+## Data Structures
+
+### UserPayload
++ name: Michael Scott (string, required) - Nome do usuário
++ email: michael@dundermifflin.com (string, required) - E-mail do usuário
++ phone: 11999999999 (string, required) - Telefone do usuário, com DDD
++ email_code: 333333 (string, required) - Código de validação do e-mail gerado na chamada `/auth/code/generate`
++ phone_code: 666666 (string, required) - Código de validação do telefone gerado na chamada `/auth/code/generate`
+
+### UserPost
++ id: `220df258-646d-45fe-a88d-a81d664fcdc6` (string, required) - Id do usuário salvo
++ token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjI2MTAwNDEsImlhdCI6MTU2MjYwOTkyMSwic3ViIjoiYjc3ZTAyZDYtMDk4My00NzAzLTg2YjEtZjM4ODI1YTQ0OTM2In0.QE1LWIzwGu0TUqV3vwUjOvBeVpWrQWSN2LURCDYFrFI` (string) - Token JWT gerado para o usuário
+
+### UserPostResp
++ data (UserPost, required)
+
+### UserPostPutErrorBadRequest
++ error: `Key: 'User.PhoneCode' Error:Field validation for 'PhoneCode' failed on the 'required' tag` (string, required) - Descrição do erro de bad request
+
+### UserPostPutErrorCodeNotFound
++ error: `rpc error: code = NotFound desc = Os codigos de validacao nao conferem com o email ou celular fornecidos` (string, required) - Descrição do erro quando os códigos de verificação não conferem
+
+### UserGet
++ id: `220df258-646d-45fe-a88d-a81d664fcdc6` (string, required) - Id do usuário
++ name: Michael Scott (string, required) - Nome do usuário
++ email: michael@dundermifflin.com (string, required) - E-mail do usuário
++ phone: 5511999999999 (string, required) - Telefone do usuário, com DDD
++ created_at: `2019-05-31T14:33:35.257501Z` (string, required) - Data de criação do registro
++ updated_at: `2019-05-31T14:33:35.257501Z` (string, optional) - Data de alteração do registro

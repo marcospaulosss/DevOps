@@ -1,0 +1,22 @@
+FORMAT: 1A
+HOST: severino.estrategia.dev
+
+<!-- include(elearning/index.apib) -->
+<!-- include(accounts/index.apib) -->
+
+## Data Structures
+
+### meta
++ per_page: 10 (number, required) - Total de itens por página. Padrão 10 itens.
++ page: 1 (number, required) - Página atual. Padrão página 1.
++ sort: `+id` (string, required) - Ordenação do tipo asc (+) ou desc (-) seguido do nome do campo pelo qual os registros devem ser ordenados.
++ total: 6 (number, required) - Total de items existentes de acordo com o filtro definido.
+
+### error
++ error: 'Failed to perform this operation' (string, required) - Mensagem de erro
+
+### ResponseError(error)
+
+### SearchResponseError(error)
++ data (array[object], required)
+

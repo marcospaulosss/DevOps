@@ -1,0 +1,69 @@
+# Group Accounts
+
+## Accounts [/auth/code/generate]
+Relação de endpoints responsáveis pela manipulação de contas que estão em processo de criação
+
+### Gerar Código [POST]
+Este endpoint é responsável pela geração do código de validação de telefone ou e-mail do usuário que está sendo criado.
+O código gerado será enviado como SMS para o telefone cadastrado e mensagem de e-mail para o endereço cadastrado.
+
++ Request (application/json)
+
+    + Attributes (AccountPayload)
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
++ Response 400 (application/json)
+
+    + Attributes (AccountPostPutError)
+
++ Response 401 (application/json)
+
+    + Attributes (AccountPostPutErrorUnauthorized)
+
+
+## Accounts [/auth/code/validate]
+
+### Valida Código [POST]
+Este endpoint é responsável pela validação do código enviado por SMS ou e-mail para o usuário que está sendo cadastrado.
+
++ Request (application/json)
+
+    + Attributes (AccountPayloadValidate)
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
++ Response 400 (application/json)
+
+    + Attributes (AccountPostPutError)
+
++ Response 401 (application/json)
+
+    + Attributes (AccountPostPutErrorUnauthorized)
+
+## Data Structures
+
+### AccountBase
++ type: `email` (string, required) - recurso para direcionamento do envio do código. Os valores possíveis são `email` ou `phone`
+
+### AccountPayload(AccountBase)
++ email: `accounts@estrategiaconcursos.com.br` (string, optional) - email valido para a envio do código. É obrigatório apenas se o campo `type` for `email`
++ phone: `11999999999` (string, optional) - telefone celular válido para a envio do código. É obrigatório apenas se o campo `type` for `phone`
+
+### AccountPayloadValidate(AccountPayload)
++ code: `123456` (string, required) - código enviado para o email do usuário
+
+### AccountPostPutError
++ error: `Key: 'Account.email' Error:Field validation for 'email' failed on the 'required' tag` (string, required) - Descrição do erro ocorrido
+
+### AccountPostPutErrorUnauthorized
++ error: `rpc error: code = AlreadyExists desc = Usuario ja cadastrado na base` (string, required) - Descrição do erro ocorrido
+

@@ -1,0 +1,20 @@
+mode: atomic
+backend/apps/severino/src/libs/paginator/paginator.go:18.54,25.2 6 18
+backend/apps/severino/src/libs/paginator/paginator.go:27.69,29.13 2 72
+backend/apps/severino/src/libs/paginator/paginator.go:32.2,32.10 1 72
+backend/apps/severino/src/libs/paginator/paginator.go:29.13,31.3 1 43
+backend/apps/severino/src/libs/paginator/paginator.go:35.40,37.16 2 3
+backend/apps/severino/src/libs/paginator/paginator.go:41.2,42.16 2 2
+backend/apps/severino/src/libs/paginator/paginator.go:45.2,45.12 1 1
+backend/apps/severino/src/libs/paginator/paginator.go:37.16,39.3 1 1
+backend/apps/severino/src/libs/paginator/paginator.go:42.16,44.3 1 1
+backend/apps/severino/src/libs/paginator/paginator.go:48.38,51.2 2 7
+backend/apps/severino/src/libs/paginator/paginator.go:53.41,56.16 2 7
+backend/apps/severino/src/libs/paginator/paginator.go:60.2,60.14 1 5
+backend/apps/severino/src/libs/paginator/paginator.go:56.16,58.3 1 2
+backend/apps/severino/src/libs/paginator/paginator.go:63.42,65.2 1 3
+backend/apps/severino/src/libs/paginator/paginator.go:67.41,68.26 1 4
+backend/apps/severino/src/libs/paginator/paginator.go:72.2,72.15 1 3
+backend/apps/severino/src/libs/paginator/paginator.go:68.26,70.3 1 1
+backend/apps/severino/src/libs/paginator/paginator.go:75.40,77.2 1 3
+backend/apps/severino/src/libs/paginator/paginator.go:79.44,82.2 2 0

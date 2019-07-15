@@ -1,0 +1,159 @@
+# Group Tracks
+## Faixas de áudio [/api/tracks]
+
+### Create [POST]
+
++ Request (application/json)
+
+    + Attributes (TrackRequest)
+
++ Response 201 (application/json)
+
+    + Attributes (TrackIDResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 419 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
+### Update [PUT]
+
++ Request (application/json)
+
+    + Attributes (TrackRequest)
+
++ Response 200 (application/json)
+
+    + Attributes (TrackIDResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 404 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 419 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes(ResponseError)
+
+### Delete [DELETE /api/tracks/{id}]
+
++ Parameters
+    + id: `1` (number, required) - ID do item
+
++ Response 204 (application/json)
+
++ Response 404 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
+### ReadOne [GET /api/tracks/{id}]
+
++ Parameters
+    + id: `1` (number, required) - ID do item
+
++ Response 200 (application/json)
+
+    + Attributes (TrackResponse)
+
++ Response 400 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 404 (application/json)
+
+    + Attributes (ResponseError)
+
++ Response 500 (application/json)
+
+    + Attributes (ResponseError)
+
+### ReadAll [GET /api/tracks{?search,sort,page,per_page}]
+
+O parametro 'search' segue o formato: "(field[operator]:'value')". Exemplos:
+
+- **created_at[gt]:'2019-01-01'**: O valor do campo `created_at` deve ser maior que `2019-01-01`
+- **created_at[gte]:'2019-01-01'**: O valor do campo `created_at` deve ser maior ou igual que `2019-01-01`
+- **created_at[lt]:'2019-01-01'**: O valor do campo `created_at` deve ser menor que `2019-01-01`
+- **created_at[lte]:'2019-01-01'**: O valor do campo `created_at` deve ser menor ou igual que `2019-01-01`
+
++ Parameters
+
+    + sort: `+created_at` (string, optional) - Ordena o resultado pelo campo determinado. A ordem varia entre ASC (adicionando o prefixo +) ou DESC (adicionando prefixo -).
+
+        + Members
+            + `+id`
+            + `-id`
+            + `+created_at`
+            + `-created_at`
+            + `+title`
+            + `-title`
+
+    + page: `1` (string, optional) - Número da página. Se for `0` a paginação vai ser ignorada.
+
+    + per_page: `5` (number, optional) - Total de itens por página. Se for `0` a paginação vai ser ignorada.
+
+    + search: `(created_at[gte]:'2019-01-01')` - Os parâmetros de busca devem estar entre parenteses. O separador `,` funciona como o operador `OR` e `+` como `AND`.
+
++ Request (application/json)
+
++ Response 200 (application/json)
+
+    + Attributes(TracksResponse)
+
++ Response 500 (application/json)
+
+    + Attributes(SearchResponseError)
+
++ Response 400 (application/json)
+
+    + Attributes(SearchResponseError)
+
+
+
+## Data Structures
+
+### `track_id`
++ id: 123 (number, required) - ID da faixa
+
+### track
++ title: Formação de Palavras, Substantivos, Artigos (string, required) - Título
++ description: Tempos Verbais (string, optional) - Descrição
++ teachers: Xavier,Rosana (string, optional) - 1 ou mais professores separados por vírgula
++ duration: 666 (number, required) - Duração do áudio em segundos
+
+### trackfull(track)
++ id: 1 (number, required) - ID do item
++ created_at: `2019-03-03 03:03:03` (string, required) - Data de criação
++ updated_at: `2019-03-03 03:03:03` (string, optional) - Data de alteração
++ media: `https://d3oc8874xjg8az.cloudfront.net/7da96347-4251-4934-9d06-e36ee6b15807/7da96347-4251-4934-9d06-e36ee6b15807.mp3` (string, required) - URL do arquivo de áudio armazenado no S3
+
+### TrackRequest(track)
++ media: `7da96347-4251-4934-9d06-e36ee6b15807.mp3` (string, required) - Nome do arquivo de áudio armazenado no S3
+
+### TrackIDResponse
++ data (track_id, required)
+
+### TrackResponse(trackfull)
+
+### TracksResponse
++ data (array[trackfull], required)
++ meta (meta) - Metadados da paginação
+
