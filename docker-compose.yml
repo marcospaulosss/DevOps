@@ -1,0 +1,129 @@
+version: "2"
+services:
+  severino:
+    image: estrategiaconcursos/go:1.12-circleci
+    container_name: severino
+    mem_limit: 512m
+    working_dir: /backend/apps/severino
+    command: sh -c 'go build -ldflags "-w -extldflags" main.go && ./main'
+    hostname: severino
+    environment:
+      - GO111MODULE=on
+      - GOPROXY=http://goproxy:8081
+      - GOOS=linux
+      - GOARCH=amd64
+      - APP_ENV=docker
+      - APP_NAME=severino
+      - ELEARNING_URL=elearning:3001
+      - ACCOUNTS_URL=accounts:3002
+      - CONFIG_DIR=/backend/apps/severino
+      - PORT=4001
+    volumes_from:
+      - data
+    ports:
+      - "4001:4001"
+    expose:
+      - "4001"
+    links:
+      - elearning
+      - accounts
+    depends_on:
+      - goproxy
+      - data
+      - elearning
+      - accounts
+
+  elearning:
+    image: estrategiaconcursos/go:1.12-circleci
+    container_name: elearning
+    mem_limit: 192m
+    working_dir: /backend/apps/elearning
+    command: sh -c 'sleep 5 && PGPASSWORD=root psql -U root -h db -d elearning < ../../schemas/elearning.sql && go build -ldflags "-w -extldflags" main.go && ./main'
+    hostname: elearning
+    environment:
+      - GO111MODULE=on
+      - GOPROXY=http://goproxy:8081
+      - GOOS=linux
+      - GOARCH=amd64
+      - APP_ENV=docker
+      - APP_NAME=elearning
+      - DATABASE_URL=postgres://root:root@db:5432/elearning?sslmode=disable
+      - LOG_OUTPUT=stdout
+      - CONFIG_DIR=/backend/apps/elearning
+    volumes_from:
+      - data
+    ports:
+      - "3001:3001"
+    expose:
+      - "3001"
+    links:
+      - db
+    depends_on:
+      - goproxy
+      - data
+      - db
+
+  accounts:
+    image: estrategiaconcursos/go:1.12-circleci
+    container_name: accounts
+    mem_limit: 192m
+    working_dir: /backend/apps/accounts
+    command: sh -c 'sleep 5 && PGPASSWORD=root psql -U root -h db -d accounts < ../../schemas/accounts.sql && go build -ldflags "-w -extldflags" main.go && ./main'
+    hostname: accounts
+    environment:
+      - GO111MODULE=on
+      - GOPROXY=http://goproxy:8081
+      - APP_ENV=docker
+      - DATABASE_URL=postgres://root:root@db:5432/accounts?sslmode=disable
+      - APP_NAME=accounts
+      - CONFIG_DIR=/backend/apps/accounts
+    volumes_from:
+      - data
+    ports:
+      - "3002:3002"
+    expose:
+      - "3002"
+    links:
+      - db
+    depends_on:
+      - goproxy
+      - data
+      - db
+
+  db:
+    image: estrategiaconcursos/postgres:alpine
+    container_name: db
+    hostname: db
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=elearning
+      - ADDITIONAL_DB=accounts
+
+  goproxy:
+    image: goproxy/goproxy
+    container_name: goproxy
+    hostname: goproxy
+    expose:
+      - "8081"
+    volumes_from:
+      - cache
+
+  cache:
+    image: alpine
+    container_name: cache
+    command: sh -c "while true; do sleep 3000; done"
+    volumes:
+      - /tmp:/go
+
+  data:
+    image: alpine
+    container_name: data
+    command: sh -c "while true; do sleep 3000; done"
+    volumes:
+      - $PWD:/backend
+

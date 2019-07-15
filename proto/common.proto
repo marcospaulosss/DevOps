@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package common;
+option go_package = "proto";
+
+message Pagination {
+    int32 per_page = 1;
+    int32 page = 2;
+    int32 offset = 3;
+    string order = 4;
+    string sort_by = 5;
+    int32 total = 6;
+}
+
+message Search {
+    Pagination pagination = 1;
+    string raw = 2;
+    string extra = 3;
+}
+
+message SearchRequest {
+    Search search = 1;
+    string id = 2;
+}

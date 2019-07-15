@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package ecommerce;
+option go_package = "proto";
+
+import "common.proto";
+
+service ProductService {
+    rpc Create(ProductRequest) returns (ProductResponse) {}
+    rpc Update(ProductRequest) returns (ProductResponse) {}
+    rpc ReadOne(ProductRequest) returns (ProductResponse) {}
+    rpc ReadAll(common.SearchRequest) returns (ProductsResponse) {}
+}
+
+message Product {
+    string id = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string started_selling_at = 4;
+    string finished_selling_at = 5;
+    string usage_expires_at = 6;
+    string name = 7;
+    string description = 8;
+    int32 stock = 9;
+    uint64 sku = 10;
+    string image = 11;
+    bool is_published = 12;
+    string company = 13;
+    string product_type = 14;
+    string items = 15;
+    repeated PaymentType payments_types = 16;
+    string history = 17;
+}
+
+message PaymentType {
+    string id = 1;
+    string name = 2;
+    int32 price = 3;
+    int32 installments = 4;
+}
+
+message ProductRequest {
+    Product product = 1;
+}
+
+message ProductResponse {
+    Product product = 1;
+}
+
+message ProductsResponse {
+    repeated Product products = 1;
+    common.Pagination pagination = 2;
+}
+

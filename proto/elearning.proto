@@ -1,0 +1,167 @@
+syntax = "proto3";
+
+package elearning;
+option go_package = "proto";
+
+import "common.proto";
+
+service AlbumService {
+    rpc Create(AlbumRequest) returns (AlbumResponse) {}
+    rpc ReadOne(AlbumRequest) returns (AlbumResponse) {}
+    rpc ReadAll(common.SearchRequest) returns (AlbumsResponse) {}
+    rpc Update(AlbumRequest) returns (AlbumResponse) {}
+    rpc Delete(AlbumRequest) returns (AlbumResponse) {}
+    rpc Publish(AlbumRequest) returns (AlbumResponse) {}
+    rpc Unpublish(AlbumRequest) returns (AlbumResponse) {}
+}
+
+service TrackService {
+    rpc Create(TrackRequest) returns (TrackResponse) {}
+    rpc ReadOne(TrackRequest) returns (TrackResponse) {}
+    rpc ReadAll(common.SearchRequest) returns (TracksResponse) {}
+    rpc Update(TrackRequest) returns (TrackResponse) {}
+    rpc Delete(TrackRequest) returns (TrackResponse) {}
+}
+
+service ShelfService {
+    rpc Create(ShelfRequest) returns (ShelfResponse) {}
+    rpc ReadOne(ShelfRequest) returns (ShelfResponse) {}
+    rpc ReadAll(common.SearchRequest) returns (ShelvesResponse) {}
+    rpc Update(ShelfRequest) returns (ShelfResponse) {}
+    rpc Delete(ShelfRequest) returns (ShelfResponse) {}
+}
+
+service SubjectService {
+    rpc Create(SubjectRequest) returns (SubjectResponse) {}
+    rpc Update(SubjectRequest) returns (SubjectResponse) {}
+    rpc ReadOne(SubjectRequest) returns (SubjectResponse) {}
+    rpc ReadAll(common.SearchRequest) returns (SubjectsResponse) {}
+    rpc Delete(SubjectRequest) returns (SubjectResponse) {}
+}
+
+service HomeService {
+    rpc ReadAll(common.SearchRequest) returns (ShelvesResponse) {}
+}
+
+service PreferenceService {
+    rpc Update(PreferenceRequest) returns (PreferenceResponse) {}
+}
+
+message AlbumRequest {
+    Album album = 1;
+    string id = 2;
+}
+
+message AlbumResponse {
+    Album album = 1;
+}
+
+message AlbumsResponse {
+    repeated Album albums = 1;
+    common.Pagination pagination = 2;
+}
+
+message Album {
+    uint64 id = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string title = 4;
+    string description = 5;
+    string image = 6;
+    bool is_published = 7;
+    string published_at = 8;
+    string teachers = 9;
+    repeated Section sections = 10;
+    repeated Shelf shelves = 11;
+}
+
+message Section {
+    uint64 id = 1;
+    string title = 2;
+    string description = 3;
+    repeated Track tracks = 4;
+}
+
+message TrackRequest {
+    Track track = 1;
+    string id = 2;
+}
+
+message TrackResponse {
+    Track track = 1;
+}
+
+message TracksResponse {
+    repeated Track tracks = 1;
+    common.Pagination pagination = 2;
+}
+
+message Track {
+    uint64 id = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string title = 4;
+    string description = 5;
+    int64 duration = 6;
+    string media = 7;
+    string teachers = 8;
+    repeated Album albums = 9;
+    Subject subject = 10;
+}
+
+message ShelfRequest {
+    Shelf shelf = 1;
+    string id = 2;
+}
+
+message ShelfResponse {
+    Shelf shelf = 1;
+}
+
+message ShelvesResponse {
+    repeated Shelf shelves = 1;
+    common.Pagination pagination = 2;
+}
+
+message Shelf {
+    uint64 id = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string title = 4;
+    repeated Album albums = 5;
+}
+
+message Preference {
+    string type  = 1;
+    string content = 2;
+}
+
+message PreferenceRequest {
+    Preference preference = 1;
+    string id = 3;
+}
+
+message PreferenceResponse {
+    Preference preference = 1;
+}
+
+message SubjectRequest {
+    Subject subject = 1;
+    string id = 2;
+}
+
+message SubjectResponse {
+    Subject subject = 1;
+}
+
+message SubjectsResponse {
+    repeated Subject subjects = 1;
+    common.Pagination pagination = 2;
+}
+
+message Subject {
+    uint64 id = 1;
+    string created_at = 2;
+    string updated_at = 3;
+    string title = 4;
+}

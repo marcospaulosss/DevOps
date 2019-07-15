@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package accounts;
+option go_package = "proto";
+
+import "common.proto";
+
+message AccountsCustomError {
+    int32 code = 1;
+    string message = 2;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string email_code = 4;
+    string phone = 5;
+    string phone_code = 6;
+    bool active = 7;
+    string created_at = 8;
+    string updated_at = 9;
+}
+
+service UserService {
+    rpc Create(UserRequest) returns (UserResponse) {}
+    rpc ReadAll(common.SearchRequest) returns (UsersResponse) {}
+}
+
+message UserRequest {
+    User user = 1;
+    string id = 2;
+}
+
+message UserResponse {
+    User user = 1;
+}
+
+message UsersResponse {
+    repeated User users = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+    int32 total = 4;
+}
+
+message Account {
+    string id = 1;
+    string type = 2;
+    string email = 3;
+    string email_code = 4;
+    string phone = 5;
+    string phone_code = 6;
+    string created_at = 7;
+    bool exists = 8;
+    string user_id = 9;
+}
+
+message AccountRequest {
+    Account Account = 1;
+    string id = 2;
+}
+
+message AccountResponse {
+    Account Account = 1;
+    AccountsCustomError error = 2;
+}
+
+message AccountsResponse {
+    repeated Account Accounts = 1;
+    AccountsCustomError error = 2;
+}
+
+service AccountService{
+    rpc Create(AccountRequest) returns (AccountResponse) {}
+    rpc ReadOne(AccountRequest) returns (AccountResponse) {}
+}
